@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rive/rive.dart';
+
+class RiveController extends GetxController {
+  FocusNode emailFocusNode = FocusNode();
+  TextEditingController emailController = TextEditingController();
+
+  FocusNode passwordFocusNode = FocusNode();
+  FocusNode cPasswordFocusNode = FocusNode();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController cPasswordController = TextEditingController();
+  //rive controller
+  StateMachineController? controller;
+
+  SMIInput<bool>? isChecking;
+  SMIInput<double>? numLook;
+  SMIInput<bool>? isHandsUp;
+  SMIInput<bool>? trigFail;
+  SMIInput<bool>? trigSuccess;
+
+  void emailFocus() {
+    isChecking?.change(emailFocusNode.hasFocus);
+    update();
+  }
+
+  void passwordFocus() {
+    isHandsUp?.change(passwordFocusNode.hasFocus);
+    update();
+  }
+
+  void cPasswordFocus() {
+    isHandsUp?.change(cPasswordFocusNode.hasFocus);
+    update();
+  }
+}

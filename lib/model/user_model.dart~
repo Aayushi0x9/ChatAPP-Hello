@@ -1,0 +1,31 @@
+class UserModel {
+  String? name;
+  String? email;
+  String? id;
+  String? image;
+  String? psw;
+
+  UserModel(
+      {required this.name,
+      required this.email,
+      required this.id,
+      required this.image,
+      required this.psw});
+
+  factory UserModel.fromMap(data) {
+    return UserModel(
+      name: data['name'],
+      email: data['email'],
+      id: data['id'],
+      image: data['image'],
+      psw: data['psw'],
+    );
+  }
+  Map<String, dynamic> toMap() => {
+        "name": name,
+        "email": email,
+        "id": id,
+        "image": image,
+        "psw": psw,
+      };
+}
