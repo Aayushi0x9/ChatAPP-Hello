@@ -1,0 +1,12 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
+
+class CloudNotification {
+  CloudNotification._();
+  static CloudNotification cloudNotification = CloudNotification._();
+
+  Future<String?> getAccessToken() async {
+    String? token = await FirebaseMessaging.instance.getToken();
+    print(token);
+    return token;
+  }
+}
